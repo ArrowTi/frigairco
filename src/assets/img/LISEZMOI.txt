@@ -1,0 +1,28 @@
+Images du site FrigAirco
+========================
+
+Déposez vos fichiers dans ces dossiers, puis relancez `npm run build`.
+Le site s'adapte tout seul : sans fichier, il affiche une version sans photo.
+
+photos/hero.jpg
+    Grande photo de la page d'accueil (format paysage 4:3, 1200 px de large suffisent).
+
+photos/<équipement>.jpg
+    Photo affichée sur les pages d'un équipement. Noms attendus :
+    coldroom (chambre froide), aircon (climatisation), heatpump (pompe à chaleur),
+    fridge (frigo), display (vitrine, comptoir), blast (refroidisseur rapide),
+    refrigeration (réfrigération commerciale et industrielle), chiller.
+
+realisations/
+    Toutes les images de ce dossier forment la galerie "Nos réalisations" de l'accueil.
+
+brands/
+    Logos des marques (.svg, .png ou .webp), nommés comme la clé "key" de site.config.mjs :
+    daikin, mitsubishi, bitzer, danfoss, fujitsu, panasonic, toshiba, lg, samsung,
+    hitachi, carrier, copeland, embraco.
+    Sans fichier, le nom de la marque est affiché en texte.
+
+og.jpg
+    Image affichée quand le site est partagé sur les réseaux sociaux (1200 x 630 px).
+
+Formats acceptés : .jpg, .png, .webp, .avif, .svg
