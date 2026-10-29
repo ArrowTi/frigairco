@@ -24,11 +24,9 @@ export default {
   formAccessKey: '',
   formEndpoint: '',
 
-  // À COMPLÉTER : obligatoire sur un site professionnel en Belgique.
+  // Page « Mentions légales » : nom de l'éditeur (vide = FrigAirco) et hébergeur du site.
   company: {
     legalName: '',
-    address: '',
-    vat: '',
     host: 'GitHub Pages (GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA)',
   },
 

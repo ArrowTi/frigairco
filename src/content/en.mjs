@@ -560,7 +560,7 @@ export default {
     title: 'Legal notice | FrigAirco',
     h1: 'Legal notice',
     blocks: (c) => [
-      ['Website publisher', [c.legalName, c.address, c.vat && `Company number (CBE/VAT): ${c.vat}`, `Phone: ${c.phone}`, `Email: ${c.email}`].filter(Boolean).join('<br>')],
+      ['Website publisher', [c.legalName, `Phone: ${c.phone}`, `Email: ${c.email}`].filter(Boolean).join('<br>')],
       ['Hosting', c.host],
       ['Intellectual property', 'The text, logo and layout of this website belong to FrigAirco. The brands mentioned belong to their respective owners and are named for information only.'],
       ['Liability', 'The information on this website is given as a guide and does not replace an on-site diagnosis by a technician.'],

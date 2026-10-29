@@ -504,8 +504,6 @@ ${ctaBand(L, lang)}`;
     const P = L[kind];
     const info = {
       legalName: cfg.company.legalName || cfg.name,
-      address: cfg.company.address,
-      vat: cfg.company.vat,
       host: cfg.company.host,
       phone: cfg.phoneDisplay,
       email: cfg.email,

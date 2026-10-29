@@ -132,7 +132,6 @@ write('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${site.domain}${base}/s
 
 const todo = [];
 if (cfg.phoneIntl === '+32400000000') todo.push('numéro de téléphone (phoneDisplay, phoneIntl)');
-if (!cfg.company.vat) todo.push("numéro d'entreprise et coordonnées légales (company)");
 if (!cfg.reviews.some((r) => !r.example)) todo.push(cfg.reviews.length ? "avis clients : modèles d'exemple, visibles seulement sur la version de démonstration" : 'avis clients (reviews) : section masquée tant que la liste est vide');
 const noLogo = cfg.brands.filter((b) => !assets.brands[b.key]).map((b) => b.name);
 if (noLogo.length) todo.push(`logos de marques manquants : ${noLogo.join(', ')}`);
