@@ -301,8 +301,11 @@ mark { background: #fff1c2; padding: 0 0.3em; border-radius: 4px; }
 .review figcaption b { display: block; color: var(--ink); line-height: 1.2; }
 .review figcaption small { color: var(--muted); }
 .review-src { margin-left: auto; font-size: 0.8rem; font-weight: 700; color: var(--muted); }
-.stars { display: flex; gap: 0.1rem; margin: 0.9rem 0 0.6rem; color: #fbbc04; }
-.star { width: 1.15rem; height: 1.15rem; }
+.review-tag { margin-left: auto; padding: 0.15rem 0.6rem; border-radius: 999px; background: #fff1c2; color: #7a5600; font-size: 0.75rem; font-weight: 800; }
+.stars { position: relative; display: flex; width: fit-content; margin: 0.9rem 0 0.6rem; color: #fbbc04; }
+.stars-bg { display: flex; color: #dfe5ee; }
+.stars-fill { position: absolute; top: 0; left: 0; bottom: 0; display: flex; overflow: hidden; }
+.star { width: 1.15rem; height: 1.15rem; flex: none; }
 .review blockquote { margin: 0; color: var(--text); font-size: 0.97rem; }
 
 .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }

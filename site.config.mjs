@@ -57,8 +57,14 @@ export default {
     { key: 'otacos', name: "O'Tacos" },
   ],
 
-  // Avis clients réels uniquement (le texte reste dans la langue d'origine). Tant que
-  // la liste est vide, la section « Avis clients » n'apparaît pas sur le site.
-  // Exemple : { name: 'Marc D.', text: 'Intervention rapide un dimanche soir…', rating: 5, date: 'octobre 2026' },
-  reviews: [],
+  // Avis clients (le texte reste dans la langue d'origine, note de 1 à 5, demi-étoiles possibles).
+  // Les avis marqués `example: true` sont des modèles : ils portent l'étiquette « Exemple »
+  // et ne s'affichent que sur la version de démonstration. Remplacez-les par de vrais avis
+  // (sans `example`) avant la mise en ligne définitive.
+  reviews: [
+    { name: 'Marc D.', rating: 5, date: 'septembre 2026', example: true, text: 'Chambre froide en panne un samedi soir : le technicien est arrivé rapidement et tout fonctionnait à nouveau dans la nuit. Merci !' },
+    { name: 'Sophie L.', rating: 4.5, date: 'août 2026', example: true, text: 'Installation de notre climatisation dans les délais, travail propre et explications claires.' },
+    { name: 'Karim B.', rating: 5, date: 'juillet 2026', example: true, text: 'Contrat de maintenance pour nos frigos et notre chambre négative : plus aucune mauvaise surprise en plein service.' },
+    { name: 'Julie M.', rating: 4, date: 'juin 2026', example: true, text: 'Entretien de la pompe à chaleur fait sérieusement. Un petit délai pour le rendez-vous, mais un très bon travail.' },
+  ],
 };

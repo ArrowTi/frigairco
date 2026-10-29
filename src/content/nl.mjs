@@ -74,6 +74,7 @@ export default {
     reviewsTitle: 'Klantenbeoordelingen',
     reviewsLead: 'Wat onze klanten over FrigAirco zeggen op Google.',
     reviewsLink: 'Alle beoordelingen op Google bekijken',
+    reviewExample: 'Voorbeeld',
     sectorsTitle: 'Onze klanten',
     sectors: ['Horeca', 'Slagerijen', 'Bakkerijen', 'Voedingswinkels', 'Industrie en logistiek', 'Kantoren', 'Particulieren'],
     galleryTitle: 'Onze realisaties',

@@ -74,6 +74,7 @@ export default {
     reviewsTitle: 'Avis clients',
     reviewsLead: 'Ce que nos clients disent de FrigAirco sur Google.',
     reviewsLink: 'Voir tous les avis sur Google',
+    reviewExample: 'Exemple',
     sectorsTitle: 'Nos clients',
     sectors: ['Horeca', 'Boucheries', 'Boulangeries-pâtisseries', 'Commerces alimentaires', 'Industrie et logistique', 'Bureaux', 'Particuliers'],
     galleryTitle: 'Nos réalisations',

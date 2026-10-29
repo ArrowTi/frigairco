@@ -74,6 +74,7 @@ export default {
     reviewsTitle: 'Customer reviews',
     reviewsLead: 'What our customers say about FrigAirco on Google.',
     reviewsLink: 'See all reviews on Google',
+    reviewExample: 'Example',
     sectorsTitle: 'Our customers',
     sectors: ['Restaurants and hotels', 'Butchers', 'Bakeries', 'Food shops', 'Industry and logistics', 'Offices', 'Homeowners'],
     galleryTitle: 'Our work',

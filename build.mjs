@@ -23,7 +23,9 @@ const zoneBy = Object.fromEntries(zones.map((z) => [z.key, z]));
 // sous-dossier éventuel et l'interdiction d'indexation viennent de l'environnement.
 const site = { ...cfg, domain: (process.env.SITE_URL || cfg.domain).replace(/\/$/, '') };
 const base = (process.env.BASE_PATH || '').replace(/\/$/, '');
-const preview = process.env.NOINDEX === '1';
+const preview = process.env.NOINDEX === '1' || process.argv.includes('--demo');
+// Les avis d'exemple ne sortent que sur la version de démonstration, jamais en production.
+site.reviews = preview ? cfg.reviews : cfg.reviews.filter((r) => !r.example);
 
 function url(lang, id) {
   const L = langs[lang];
@@ -128,7 +130,7 @@ write('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${site.domain}${base}/s
 const todo = [];
 if (cfg.phoneIntl === '+32400000000') todo.push('numéro de téléphone (phoneDisplay, phoneIntl)');
 if (!cfg.company.vat) todo.push("numéro d'entreprise et coordonnées légales (company)");
-if (!cfg.reviews.length) todo.push('avis clients (reviews) : section masquée tant que la liste est vide');
+if (!cfg.reviews.some((r) => !r.example)) todo.push(cfg.reviews.length ? "avis clients : modèles d'exemple, visibles seulement sur la version de démonstration" : 'avis clients (reviews) : section masquée tant que la liste est vide');
 const noLogo = cfg.brands.filter((b) => !assets.brands[b.key]).map((b) => b.name);
 if (noLogo.length) todo.push(`logos de marques manquants : ${noLogo.join(', ')}`);
 if (!assets.hero) todo.push("photo d'accueil (src/assets/img/photos/hero.jpg)");
