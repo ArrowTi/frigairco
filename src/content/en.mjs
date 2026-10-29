@@ -201,7 +201,7 @@ export default {
       ],
       faq: (e) => [
         [`How much does ${e.name} installation cost?`, 'The price depends on the capacity, the equipment chosen and the layout of the premises. We prepare a quote once we have assessed what you need.'],
-        ['Which brands do you install?', 'We work with Daikin, Mitsubishi Electric, Fujitsu, Bitzer and Danfoss among others, and we also service and repair other brands.'],
+        ['Which brands do you install?', 'We work with Daikin, Mitsubishi Electric, Fujitsu, Panasonic, Samsung and LG among others, and we also service and repair other brands.'],
         [`Do you service the equipment after ${e.name} assembly?`, `Yes. After installation we can take care of ${e.name} maintenance, as well as repairs 24 hours a day, 7 days a week.`],
       ],
     },

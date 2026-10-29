@@ -127,10 +127,10 @@ write('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${site.domain}${base}/s
 
 const todo = [];
 if (cfg.phoneIntl === '+32400000000') todo.push('numéro de téléphone (phoneDisplay, phoneIntl)');
-if (cfg.email === 'contact@frigairco.be') todo.push('adresse e-mail à confirmer (email)');
 if (!cfg.formEndpoint) todo.push('envoi du formulaire : mailto pour le moment (formEndpoint)');
+else if (cfg.formEndpoint.includes('formsubmit')) todo.push(`formulaire : cliquer une fois sur l'e-mail d'activation FormSubmit reçu sur ${cfg.quoteEmail}`);
 if (!cfg.company.vat) todo.push("numéro d'entreprise et coordonnées légales (company)");
-if (cfg.reviews.some((r) => r.name === 'Nom du client')) todo.push('avis clients (reviews)');
+if (!cfg.reviews.length) todo.push('avis clients (reviews) : section masquée tant que la liste est vide');
 const noLogo = cfg.brands.filter((b) => !assets.brands[b.key]).map((b) => b.name);
 if (noLogo.length) todo.push(`logos de marques manquants : ${noLogo.join(', ')}`);
 if (!assets.hero) todo.push("photo d'accueil (src/assets/img/photos/hero.jpg)");

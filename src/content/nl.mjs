@@ -201,7 +201,7 @@ export default {
       ],
       faq: (e) => [
         [`Wat kost een installatie ${e.name}?`, 'De prijs hangt af van het vermogen, het gekozen materiaal en de situatie ter plaatse. Wij maken een offerte na studie van uw behoefte.'],
-        ['Welke merken installeren jullie?', 'Wij werken onder meer met Daikin, Mitsubishi Electric, Fujitsu, Bitzer en Danfoss, en verzorgen ook het onderhoud en de herstelling van andere merken.'],
+        ['Welke merken installeren jullie?', 'Wij werken onder meer met Daikin, Mitsubishi Electric, Fujitsu, Panasonic, Samsung en LG, en verzorgen ook het onderhoud en de herstelling van andere merken.'],
         [`Doen jullie ook het onderhoud na de montage ${e.name}?`, `Ja. Na de installatie kunnen wij het onderhoud ${e.name} verzorgen, net als de herstelling, 24 uur per dag en 7 dagen per week.`],
       ],
     },

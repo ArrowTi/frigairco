@@ -98,8 +98,10 @@ export function createRenderer(c) {
   </div>
 </section>`;
 
-  // La liste des marques est doublée pour que le défilement boucle sans coupure.
-  const brandItems = cfg.brands
+  // Les logos sont répétés jusqu'à couvrir un grand écran, puis la liste est doublée
+  // pour que le défilement boucle sans coupure. La durée suit le nombre de logos.
+  const brandList = Array.from({ length: Math.ceil(12 / cfg.brands.length) }, () => cfg.brands).flat();
+  const brandItems = brandList
     .map((b) => `<li>${assets.brands[b.key] ? `<img src="${assets.brands[b.key]}" alt="${esc(b.name)}" loading="lazy">` : `<span>${esc(b.name)}</span>`}</li>`)
     .join('');
 
@@ -110,10 +112,10 @@ export function createRenderer(c) {
     <ul class="certs">${cfg.certifications.map((k) => `<li>${icon('shield')}<div><b>${k}</b><span>${L.t.certs[k] ?? ''}</span></div></li>`).join('')}</ul>
     <h3 class="brands-title">${L.t.brandsTitle}</h3>
   </div>
-  <div class="marquee"><ul class="brands">${brandItems}</ul><ul class="brands" aria-hidden="true">${brandItems}</ul></div>
+  <div class="marquee" style="--marquee-time: ${Math.round(brandList.length * 4.3)}s"><ul class="brands">${brandItems}</ul><ul class="brands" aria-hidden="true">${brandItems}</ul></div>
 </section>`;
 
-  const reviewsBlock = (L) => `
+  const reviewsBlock = (L) => !cfg.reviews.length ? '' : `
 <section class="section section--alt">
   <div class="container">
     ${secHead(L.t.reviewsTitle, L.t.reviewsLead)}
@@ -171,7 +173,7 @@ export function createRenderer(c) {
   const contactForm = (L) => {
     const f = L.form;
     return `<form class="form" method="post" action="${esc(cfg.formEndpoint || '#')}" data-contact-form
-      data-endpoint="${esc(cfg.formEndpoint)}" data-key="${esc(cfg.formAccessKey)}" data-email="${esc(cfg.email)}"
+      data-endpoint="${esc(cfg.formEndpoint)}" data-email="${esc(cfg.quoteEmail)}"
       data-subject="${esc(f.subject)}" data-ok="${esc(f.ok)}" data-error="${esc(f.error)}" data-mailto="${esc(f.mailto)}" data-sending="${esc(f.sending)}">
       <h2>${L.contact.formTitle}</h2>
       <div class="row">
@@ -546,6 +548,7 @@ ${pageHero({ L, lang, crumbs: [[L.t.home, 'home'], [P.h1, null]], h1: P.h1, lead
         <li><a href="${url(lang, 'contact')}"${id === 'contact' ? ' aria-current="page"' : ''}>${L.t.contact}</a></li>
       </ul>
       <div class="nav-extra">
+        ${btnQuote(L, lang, 'btn-ghost btn--sm')}
         <a class="btn btn-call btn--sm" href="${telUrl}">${icon('phone')}<span>${cfg.phoneDisplay}</span></a>
       </div>
     </nav>

@@ -18,8 +18,7 @@ realisations/
 
 brands/
     Logos des marques (.svg, .png ou .webp), nommés comme la clé "key" de site.config.mjs :
-    daikin, mitsubishi, bitzer, danfoss, fujitsu, panasonic, toshiba, lg, samsung,
-    hitachi, carrier, copeland, embraco.
+    mitsubishi, daikin, fujitsu, panasonic, samsung, lg, marque-o.
     Sans fichier, le nom de la marque est affiché en texte.
 
 og.jpg

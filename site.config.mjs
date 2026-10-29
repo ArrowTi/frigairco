@@ -12,14 +12,16 @@ export default {
   phoneDisplay: '0400 00 00 00',
   phoneIntl: '+32400000000',
 
-  // À COMPLÉTER : adresse qui reçoit les demandes du formulaire.
-  email: 'contact@frigairco.be',
+  // Adresse affichée sur le site pour les contacts.
+  email: 'info@frigairco.be',
 
-  // Envoi du formulaire. Laissez `formEndpoint` vide pour ouvrir le logiciel de
-  // messagerie du visiteur (mailto). Pour un envoi direct, créez un formulaire
-  // sur Web3Forms ou Formspree et collez ici l'adresse et la clé reçues.
-  formEndpoint: '',
-  formAccessKey: '',
+  // Adresse qui reçoit les demandes de devis du formulaire.
+  quoteEmail: 'contact@frigairco.be',
+
+  // Envoi direct du formulaire par FormSubmit (gratuit, sans compte). À la première
+  // demande reçue, FormSubmit envoie un e-mail d'activation à quoteEmail : il faut
+  // cliquer une fois sur le lien. Laissez vide pour ouvrir la messagerie du visiteur.
+  formEndpoint: 'https://formsubmit.co/ajax/contact@frigairco.be',
 
   // À COMPLÉTER : obligatoire sur un site professionnel en Belgique.
   company: {
@@ -44,25 +46,17 @@ export default {
   // Sans fichier, le nom de la marque est affiché en texte.
   // Retirez de la liste les marques sur lesquelles vous ne travaillez pas.
   brands: [
-    { key: 'daikin', name: 'Daikin' },
     { key: 'mitsubishi', name: 'Mitsubishi Electric' },
-    { key: 'bitzer', name: 'Bitzer' },
-    { key: 'danfoss', name: 'Danfoss' },
+    { key: 'daikin', name: 'Daikin' },
     { key: 'fujitsu', name: 'Fujitsu' },
     { key: 'panasonic', name: 'Panasonic' },
-    { key: 'toshiba', name: 'Toshiba' },
-    { key: 'lg', name: 'LG' },
     { key: 'samsung', name: 'Samsung' },
-    { key: 'hitachi', name: 'Hitachi' },
-    { key: 'carrier', name: 'Carrier' },
-    { key: 'copeland', name: 'Copeland' },
-    { key: 'embraco', name: 'Embraco' },
+    { key: 'lg', name: 'LG' },
+    { key: 'marque-o', name: 'Marque partenaire' },
   ],
 
-  // À COMPLÉTER : vos vrais avis Google (le texte reste dans la langue d'origine).
-  reviews: [
-    { name: 'Nom du client', text: "Texte de l'avis à compléter.", rating: 5, date: '' },
-    { name: 'Nom du client', text: "Texte de l'avis à compléter.", rating: 5, date: '' },
-    { name: 'Nom du client', text: "Texte de l'avis à compléter.", rating: 5, date: '' },
-  ],
+  // Avis clients réels uniquement (le texte reste dans la langue d'origine). Tant que
+  // la liste est vide, la section « Avis clients » n'apparaît pas sur le site.
+  // Exemple : { name: 'Marc D.', text: 'Intervention rapide un dimanche soir…', rating: 5, date: 'octobre 2026' },
+  reviews: [],
 };

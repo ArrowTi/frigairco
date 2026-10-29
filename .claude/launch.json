@@ -4,7 +4,18 @@
     {
       "name": "frigairco",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "preview"],
+      "runtimeArgs": [
+        "run",
+        "preview"
+      ],
+      "port": 4173
+    },
+    {
+      "name": "frigairco-serve",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "serve.mjs"
+      ],
       "port": 4173
     }
   ]

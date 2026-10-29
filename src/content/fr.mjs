@@ -201,7 +201,7 @@ export default {
       ],
       faq: (e) => [
         [`Combien coûte une installation ${e.name} ?`, 'Le prix dépend de la puissance, du matériel choisi et de la configuration des lieux. Nous établissons un devis après avoir étudié votre besoin.'],
-        ['Quelles marques installez-vous ?', "Nous travaillons notamment avec Daikin, Mitsubishi Electric, Fujitsu, Bitzer et Danfoss, et nous assurons aussi l'entretien et le dépannage des autres marques."],
+        ['Quelles marques installez-vous ?', "Nous travaillons notamment avec Daikin, Mitsubishi Electric, Fujitsu, Panasonic, Samsung et LG, et nous assurons aussi l'entretien et le dépannage des autres marques."],
         [`Assurez-vous l'entretien après le montage ${e.name} ?`, `Oui. Après l'installation, nous pouvons assurer l'entretien et la maintenance ${e.name}, ainsi que le dépannage 24h/24 et 7j/7.`],
       ],
     },

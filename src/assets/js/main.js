@@ -68,7 +68,7 @@ if (form) {
     if (form.website.value) return; // champ piège : rempli uniquement par les robots
 
     const fields = [...form.querySelectorAll('[data-label]')].filter((el) => el.value.trim());
-    const { endpoint, key, email, subject, ok, error, mailto, sending } = form.dataset;
+    const { endpoint, email, subject, ok, error, mailto, sending } = form.dataset;
 
     if (!endpoint) {
       const body = fields.map((el) => `${el.dataset.label} : ${el.value.trim()}`).join('\n');
@@ -77,9 +77,11 @@ if (form) {
       return;
     }
 
-    const data = Object.fromEntries(fields.map((el) => [el.name, el.value.trim()]));
-    data.subject = subject;
-    if (key) data.access_key = key;
+    // Les intitulés du formulaire servent de noms de champs : l'e-mail reçu se lit tel quel.
+    const data = Object.fromEntries(fields.map((el) => [el.dataset.label, el.value.trim()]));
+    data._subject = subject;
+    data._replyto = form.email.value.trim();
+    data._template = 'table';
 
     button.disabled = true;
     say(sending, 'wait');
@@ -89,7 +91,8 @@ if (form) {
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(data),
       });
-      if (!res.ok) throw new Error(String(res.status));
+      const reply = await res.json().catch(() => ({}));
+      if (!res.ok || String(reply.success) === 'false') throw new Error(reply.message || String(res.status));
       form.reset();
       say(ok, 'ok');
     } catch {
