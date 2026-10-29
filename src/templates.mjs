@@ -539,6 +539,11 @@ ${pageHero({ L, lang, crumbs: [[L.t.home, 'home'], [P.h1, null]], h1: P.h1, lead
 <header class="header">
   <div class="container header-in">
     <a class="brand" href="${url(lang, 'home')}" aria-label="${L.t.home} FrigAirco">${mark('h')}<span class="brand-name">Frig<b>Airco</b></span></a>
+    <div class="header-quick">
+      <a class="hq-call" href="${telUrl}" aria-label="${L.t.callNumber(cfg.phoneDisplay)}">${icon('phone')}</a>
+      <a class="hq-wa" href="${waUrl}" rel="noopener" aria-label="${L.t.whatsapp}">${icon('wa')}</a>
+      <a class="hq-quote" href="${url(lang, 'contact')}#contact" aria-label="${L.t.quote}">${icon('mail')}</a>
+    </div>
     <button class="nav-toggle" type="button" aria-controls="nav" aria-expanded="false" aria-label="${L.t.menu}">${icon('menu')}</button>
     <nav class="nav" id="nav" aria-label="${L.t.menu}">
       <ul>
@@ -593,11 +598,7 @@ ${pageHero({ L, lang, crumbs: [[L.t.home, 'home'], [P.h1, null]], h1: P.h1, lead
   </div>
 </footer>
 <a class="wa-float" href="${waUrl}" rel="noopener" aria-label="${L.t.whatsapp}">${icon('wa')}</a>
-<div class="mobile-bar">
-  <a class="mb-call" href="${telUrl}"><span class="mb-ico">${icon('phone')}</span><span><b>${L.t.call}</b><small>${cfg.phoneDisplay}</small></span></a>
-  <a class="mb-wa" href="${waUrl}" rel="noopener">${icon('wa')}<span>${L.t.whatsapp}</span></a>
-  <a class="mb-quote" href="${url(lang, 'contact')}#contact">${icon('mail')}<span>${L.t.quoteShort}</span></a>
-</div>`;
+`;
   }
 
   const business = {
@@ -633,7 +634,7 @@ ${pageHero({ L, lang, crumbs: [[L.t.home, 'home'], [P.h1, null]], h1: P.h1, lead
 <html lang="${L.hreflang}">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(page.title)}</title>
 <meta name="description" content="${esc(page.desc)}">
 ${page.noindex || c.preview ? '<meta name="robots" content="noindex, follow">' : ''}

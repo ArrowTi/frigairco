@@ -26,7 +26,6 @@ export default {
     call: 'Call',
     callNumber: (n) => `Call ${n}`,
     quote: 'Request a quote',
-    quoteShort: 'Quote',
     generic: { name: 'refrigeration or AC', your: 'your equipment' },
     whatsapp: 'WhatsApp',
     menu: 'Menu',

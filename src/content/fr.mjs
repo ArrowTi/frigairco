@@ -26,7 +26,6 @@ export default {
     call: 'Appeler',
     callNumber: (n) => `Appeler le ${n}`,
     quote: 'Demander un devis',
-    quoteShort: 'Devis',
     generic: { name: 'frigo ou clim', your: 'votre installation' },
     whatsapp: 'WhatsApp',
     menu: 'Menu',

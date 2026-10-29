@@ -97,7 +97,16 @@ mark { background: #fff1c2; padding: 0 0.3em; border-radius: 4px; }
 .brand-name { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.03em; color: #fff; }
 .brand-name b { color: var(--ice-400); }
 
-.nav-toggle { display: none; margin-left: auto; background: none; border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 10px; color: #fff; padding: 0.5rem; cursor: pointer; }
+.nav-toggle { display: none; background: none; border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 10px; color: #fff; padding: 0.5rem; cursor: pointer; }
+
+.header-quick { display: none; gap: 8px; margin-left: auto; }
+.header-quick a { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; color: #fff; transition: transform 0.15s, filter 0.15s; }
+.header-quick a:active { transform: scale(0.92); }
+.header-quick a:hover { filter: brightness(1.12); }
+.header-quick .ico { width: 20px; height: 20px; }
+.hq-call { background: var(--vivid); box-shadow: 0 4px 14px rgba(15, 111, 255, 0.45); }
+.hq-wa { background: var(--wa); }
+.hq-quote { background: rgba(255, 255, 255, 0.1); color: var(--ice-300) !important; border: 1px solid rgba(255, 255, 255, 0.14); }
 .nav-toggle .ico { width: 1.5rem; height: 1.5rem; display: block; }
 
 .nav { display: flex; align-items: center; gap: 1.25rem; margin-left: auto; }
@@ -130,6 +139,8 @@ mark { background: #fff1c2; padding: 0 0.3em; border-radius: 4px; }
 
 @media (max-width: 1240px) {
   .nav-toggle { display: block; }
+  .header-quick { display: flex; }
+  .header-in { gap: 0.75rem; }
   .nav { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 1rem; background: var(--navy-900); padding: 0.5rem 1rem 1.25rem; max-height: calc(100vh - 110px); overflow-y: auto; border-top: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 20px 40px rgba(6, 19, 42, 0.4); }
   .nav.open { display: flex; }
   .nav > ul { flex-direction: column; align-items: stretch; gap: 0; }
@@ -359,7 +370,8 @@ mark { background: #fff1c2; padding: 0 0.3em; border-radius: 4px; }
 .wa-float { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 40; display: grid; place-items: center; width: 58px; height: 58px; border-radius: 50%; background: var(--wa); color: #fff; animation: pulse 2.2s infinite; transition: transform 0.2s; }
 .wa-float:hover { transform: scale(1.1); }
 .wa-float .ico { width: 2rem; height: 2rem; }
-.mobile-bar { display: none; }
+/* Avec le menu compact, WhatsApp est déjà dans l'en-tête. */
+@media (max-width: 1240px) { .wa-float { display: none; } }
 
 /* ---------- Effets : survols, liens et apparitions ---------- */
 
@@ -403,7 +415,6 @@ mark { background: #fff1c2; padding: 0 0.3em; border-radius: 4px; }
 @keyframes marquee { to { transform: translateX(calc(-100% - 1rem)); } }
 @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); } 100% { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); } }
 @keyframes live { 0% { box-shadow: 0 0 0 0 rgba(53, 208, 127, 0.6); } 100% { box-shadow: 0 0 0 8px rgba(53, 208, 127, 0); } }
-@keyframes ring { 0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.55); } 100% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); } }
 
 /* ---------- Écrans réduits ---------- */
 
@@ -418,7 +429,6 @@ mark { background: #fff1c2; padding: 0 0.3em; border-radius: 4px; }
 }
 
 @media (max-width: 640px) {
-  body { padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
   .topbar-regions { display: none; }
   .topbar-in > span { white-space: nowrap; }
   .checks, .form .row, .footer-grid { grid-template-columns: minmax(0, 1fr); }
@@ -426,28 +436,19 @@ mark { background: #fff1c2; padding: 0 0.3em; border-radius: 4px; }
   .picker li a { gap: 0.55rem; padding: 0.65rem 0.6rem; font-size: 0.88rem; }
   .picker li .ico { width: 1.3rem; height: 1.3rem; }
   .hero .btns .btn { flex: 1 1 100%; justify-content: center; }
-  .wa-float { display: none; }
-  .mobile-bar { position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); z-index: 45; display: flex; gap: 8px; padding: 8px; background: rgba(10, 31, 60, 0.94); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 24px; box-shadow: 0 14px 34px rgba(6, 19, 42, 0.4); backdrop-filter: blur(12px); animation: rise 0.5s 0.3s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
-  .mobile-bar a { display: flex; align-items: center; justify-content: center; min-height: 56px; border-radius: 17px; color: #fff; text-decoration: none; transition: transform 0.15s, filter 0.15s; }
-  .mobile-bar a:active { transform: scale(0.95); filter: brightness(1.1); }
-  .mb-call { flex: 1; gap: 0.7rem; padding: 0 1rem; justify-content: flex-start; background: linear-gradient(135deg, #2b86ff, var(--vivid)); box-shadow: 0 6px 18px rgba(15, 111, 255, 0.45); }
-  .mb-call b { display: block; font-size: 1rem; font-weight: 800; line-height: 1.15; }
-  .mb-call small { display: block; font-size: 0.78rem; font-weight: 600; opacity: 0.85; letter-spacing: 0.02em; white-space: nowrap; }
-  .mb-ico { position: relative; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: rgba(255, 255, 255, 0.18); }
-  .mb-ico::after { content: ""; position: absolute; inset: 0; border-radius: 50%; animation: ring 2s infinite; }
-  .mb-ico .ico { width: 18px; height: 18px; }
-  .mb-wa, .mb-quote { flex-direction: column; gap: 3px; width: 66px; flex: none; font-size: 0.68rem; font-weight: 700; }
-  .mb-wa .ico, .mb-quote .ico { width: 22px; height: 22px; }
-  .mb-wa { background: var(--wa); color: #fff; }
-  .mb-quote { background: rgba(255, 255, 255, 0.1); color: var(--ice-300); }
 }
 
 @media (max-width: 380px) {
+  .header-quick { gap: 5px; }
+  .header-quick a { width: 34px; height: 34px; border-radius: 10px; }
+  .header-quick .ico { width: 18px; height: 18px; }
+  .header-in { gap: 0.4rem; }
+  .brand { gap: 0.4rem; }
+  .brand-name { font-size: 1.2rem; }
+  .mark { width: 26px; height: 34px; }
+  .nav-toggle { padding: 0.35rem; }
   .topbar { font-size: 0.76rem; }
   .topbar .dot { margin-right: 0.4rem; }
-  .mb-call { gap: 0.5rem; padding: 0 0.7rem; }
-  .mb-ico { width: 30px; height: 30px; }
-  .mb-wa, .mb-quote { width: 56px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -460,5 +461,5 @@ mark { background: #fff1c2; padding: 0 0.3em; border-radius: 4px; }
 }
 
 @media print {
-  .topbar, .header, .footer, .cta, .wa-float, .mobile-bar { display: none; }
+  .topbar, .header, .footer, .cta, .wa-float { display: none; }
 }
