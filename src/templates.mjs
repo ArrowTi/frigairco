@@ -502,19 +502,18 @@ ${ctaBand(L, lang)}`;
   function textPage(lang, kind) {
     const L = langs[lang];
     const P = L[kind];
-    const todo = `<mark>${L.t.toComplete}</mark>`;
     const info = {
-      legalName: cfg.company.legalName || `${cfg.name} (${todo})`,
-      address: cfg.company.address || todo,
-      vat: cfg.company.vat || todo,
-      host: cfg.company.host || todo,
+      legalName: cfg.company.legalName || cfg.name,
+      address: cfg.company.address,
+      vat: cfg.company.vat,
+      host: cfg.company.host,
       phone: cfg.phoneDisplay,
       email: cfg.email,
     };
     const body = `
 ${pageHero({ L, lang, crumbs: [[L.t.home, 'home'], [P.h1, null]], h1: P.h1, lead: '' })}
 <section class="section">
-  <div class="container narrow prose">${P.blocks(info).map(([h, t]) => `<h2>${h}</h2><p>${t}</p>`).join('')}</div>
+  <div class="container narrow prose">${P.blocks(info).filter(([, t]) => t).map(([h, t]) => `<h2>${h}</h2><p>${t}</p>`).join('')}</div>
 </section>`;
     return { title: P.title, desc: strip(P.h1) + ' | FrigAirco', body, crumbs: [[L.t.home, 'home'], [P.h1, kind]], schema: [], noindex: true };
   }

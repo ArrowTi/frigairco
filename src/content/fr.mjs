@@ -74,7 +74,6 @@ export default {
     sectorsTitle: 'Nos clients',
     sectors: ['Horeca', 'Boucheries', 'Boulangeries-pâtisseries', 'Commerces alimentaires', 'Industrie et logistique', 'Bureaux', 'Particuliers'],
     galleryTitle: 'Nos réalisations',
-    toComplete: 'à compléter',
     notFoundTitle: 'Page introuvable',
     notFoundText: "Cette page n'existe pas ou a été déplacée.",
     notFoundBack: "Retour à l'accueil",
@@ -561,7 +560,7 @@ export default {
     title: 'Mentions légales | FrigAirco',
     h1: 'Mentions légales',
     blocks: (c) => [
-      ['Éditeur du site', `${c.legalName}<br>${c.address}<br>Numéro d'entreprise (BCE/TVA) : ${c.vat}<br>Téléphone : ${c.phone}<br>E-mail : ${c.email}`],
+      ['Éditeur du site', [c.legalName, c.address, c.vat && `Numéro d'entreprise (BCE/TVA) : ${c.vat}`, `Téléphone : ${c.phone}`, `E-mail : ${c.email}`].filter(Boolean).join('<br>')],
       ['Hébergement', c.host],
       ['Propriété intellectuelle', "Les textes, le logo et la mise en page de ce site appartiennent à FrigAirco. Les marques citées appartiennent à leurs propriétaires respectifs et sont mentionnées à titre d'information."],
       ['Responsabilité', "Les informations publiées sur ce site sont données à titre indicatif et ne remplacent pas le diagnostic d'un technicien sur place."],
@@ -572,12 +571,11 @@ export default {
     title: 'Politique de confidentialité | FrigAirco',
     h1: 'Politique de confidentialité',
     blocks: (c) => [
-      ['Responsable du traitement', `${c.legalName}, ${c.address}. Contact : ${c.email}.`],
       ['Données collectées', 'Lorsque vous utilisez le formulaire de contact, nous recevons les informations que vous y indiquez : nom, téléphone, adresse e-mail, localité et message.'],
       ['Utilisation', 'Ces données servent uniquement à répondre à votre demande, à établir un devis et à organiser une intervention. Elles ne sont ni vendues ni cédées à des tiers.'],
       ['Durée de conservation', 'Vos données sont conservées le temps nécessaire au traitement de votre demande et au suivi de la relation commerciale, puis supprimées.'],
       ['Cookies', "Ce site ne dépose aucun cookie et n'utilise aucun outil de mesure d'audience ni de publicité. Seule la langue d'affichage est retenue dans votre navigateur le temps de la visite ; elle est effacée à la fermeture de l'onglet."],
-      ['Vos droits', "Vous pouvez demander l'accès à vos données, leur rectification ou leur suppression en nous écrivant. Vous pouvez aussi introduire une réclamation auprès de l'Autorité de protection des données (www.autoriteprotectiondonnees.be)."],
+      ['Vos droits', `Vous pouvez demander l'accès à vos données, leur rectification ou leur suppression en écrivant à ${c.email}. Vous pouvez aussi introduire une réclamation auprès de l'Autorité de protection des données (www.autoriteprotectiondonnees.be).`],
     ],
   },
 };

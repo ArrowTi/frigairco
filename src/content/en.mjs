@@ -74,7 +74,6 @@ export default {
     sectorsTitle: 'Our customers',
     sectors: ['Restaurants and hotels', 'Butchers', 'Bakeries', 'Food shops', 'Industry and logistics', 'Offices', 'Homeowners'],
     galleryTitle: 'Our work',
-    toComplete: 'to be completed',
     notFoundTitle: 'Page not found',
     notFoundText: 'This page does not exist or has been moved.',
     notFoundBack: 'Back to the home page',
@@ -561,7 +560,7 @@ export default {
     title: 'Legal notice | FrigAirco',
     h1: 'Legal notice',
     blocks: (c) => [
-      ['Website publisher', `${c.legalName}<br>${c.address}<br>Company number (CBE/VAT): ${c.vat}<br>Phone: ${c.phone}<br>Email: ${c.email}`],
+      ['Website publisher', [c.legalName, c.address, c.vat && `Company number (CBE/VAT): ${c.vat}`, `Phone: ${c.phone}`, `Email: ${c.email}`].filter(Boolean).join('<br>')],
       ['Hosting', c.host],
       ['Intellectual property', 'The text, logo and layout of this website belong to FrigAirco. The brands mentioned belong to their respective owners and are named for information only.'],
       ['Liability', 'The information on this website is given as a guide and does not replace an on-site diagnosis by a technician.'],
@@ -572,12 +571,11 @@ export default {
     title: 'Privacy policy | FrigAirco',
     h1: 'Privacy policy',
     blocks: (c) => [
-      ['Data controller', `${c.legalName}, ${c.address}. Contact: ${c.email}.`],
       ['Data collected', 'When you use the contact form, we receive the details you enter: name, phone number, email address, town and message.'],
       ['Use', 'These details are used only to answer your request, prepare a quote and arrange a visit. They are not sold or passed on to third parties.'],
       ['Retention', 'Your details are kept for as long as needed to handle your request and follow up the customer relationship, then deleted.'],
       ['Cookies', 'This website sets no cookies and uses no analytics or advertising tools. Only the display language is remembered in your browser for the length of your visit; it is cleared when you close the tab.'],
-      ['Your rights', 'You can ask to access, correct or delete your details by writing to us. You can also lodge a complaint with the Belgian Data Protection Authority (www.dataprotectionauthority.be).'],
+      ['Your rights', `You can ask to access, correct or delete your details by writing to ${c.email}. You can also lodge a complaint with the Belgian Data Protection Authority (www.dataprotectionauthority.be).`],
     ],
   },
 };
