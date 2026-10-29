@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 208 48" role="img" aria-label="FrigAirco">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3cc0ff"/><stop offset="1" stop-color="#0f56c9"/></linearGradient></defs>
+  <g transform="translate(-7 0)">
+  <path d="M24 3C24 3 9 18.5 9 29a15 15 0 0 0 30 0C39 18.5 24 3 24 3Z" fill="url(#g)"/>
+  <g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path transform="rotate(0 24 29)" d="M24 29v-8.5M21.6 22.4 24 24.8l2.4-2.4"/><path transform="rotate(60 24 29)" d="M24 29v-8.5M21.6 22.4 24 24.8l2.4-2.4"/><path transform="rotate(120 24 29)" d="M24 29v-8.5M21.6 22.4 24 24.8l2.4-2.4"/><path transform="rotate(180 24 29)" d="M24 29v-8.5M21.6 22.4 24 24.8l2.4-2.4"/><path transform="rotate(240 24 29)" d="M24 29v-8.5M21.6 22.4 24 24.8l2.4-2.4"/><path transform="rotate(300 24 29)" d="M24 29v-8.5M21.6 22.4 24 24.8l2.4-2.4"/></g></g>
+  <text x="42" y="35" font-family="'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif" font-size="30" font-weight="800" letter-spacing="-0.6" fill="#ffffff">Frig<tspan fill="#6fd0ff">Airco</tspan></text>
+</svg>
