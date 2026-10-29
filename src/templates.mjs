@@ -121,7 +121,7 @@ export function createRenderer(c) {
     ${secHead(L.t.reviewsTitle, L.t.reviewsLead)}
     <div class="reviews">${cfg.reviews
       .map((r) => `<figure class="review">
-        <div class="review-top"><span class="avatar" aria-hidden="true">${esc(r.name.charAt(0))}</span><figcaption><b>${esc(r.name)}</b>${r.date ? `<small>${esc(r.date)}</small>` : ''}</figcaption>${r.example ? `<span class="review-tag">${L.t.reviewExample}</span>` : '<span class="review-src">Google</span>'}</div>
+        <div class="review-top"><span class="avatar" aria-hidden="true">${esc(r.name.charAt(0))}</span><figcaption><b>${esc(r.name)}</b>${r.date ? `<small>${esc(r.date)}</small>` : ''}</figcaption>${r.example ? `<span class="review-tag">${L.t.reviewExample}</span>` : r.source ? `<span class="review-src">${esc(r.source)}</span>` : ''}</div>
         <div class="stars" role="img" aria-label="${L.code === 'en' ? r.rating : String(r.rating).replace('.', ',')}/5"><span class="stars-bg">${star.repeat(5)}</span><span class="stars-fill" style="width: ${r.rating * 20}%">${star.repeat(5)}</span></div>
         <blockquote>${esc(r.text)}</blockquote>
       </figure>`)
