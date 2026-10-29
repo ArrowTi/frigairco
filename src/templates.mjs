@@ -503,8 +503,7 @@ ${ctaBand(L, lang)}`;
     const L = langs[lang];
     const P = L[kind];
     const info = {
-      legalName: cfg.company.legalName || cfg.name,
-      host: cfg.company.host,
+      name: cfg.name,
       phone: cfg.phoneDisplay,
       email: cfg.email,
     };

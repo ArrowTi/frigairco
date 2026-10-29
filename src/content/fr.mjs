@@ -560,8 +560,7 @@ export default {
     title: 'Mentions légales | FrigAirco',
     h1: 'Mentions légales',
     blocks: (c) => [
-      ['Éditeur du site', [c.legalName, `Téléphone : ${c.phone}`, `E-mail : ${c.email}`].filter(Boolean).join('<br>')],
-      ['Hébergement', c.host],
+      ['Éditeur du site', [c.name, `Téléphone : ${c.phone}`, `E-mail : ${c.email}`].filter(Boolean).join('<br>')],
       ['Propriété intellectuelle', "Les textes, le logo et la mise en page de ce site appartiennent à FrigAirco. Les marques citées appartiennent à leurs propriétaires respectifs et sont mentionnées à titre d'information."],
       ['Responsabilité', "Les informations publiées sur ce site sont données à titre indicatif et ne remplacent pas le diagnostic d'un technicien sur place."],
     ],
