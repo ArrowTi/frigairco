@@ -369,7 +369,7 @@ ${stepsBlock(A.stepsTitle(E), A.steps)}
     <ul class="chips">${EQUIP.filter((k) => k !== e).map((k) => `<li><a href="${url(lang, `combo:${a}:${k}`)}">${A.pair(L.equipment[k])}</a></li>`).join('')}</ul>
   </div>
 </section>
-${zonesBlock(lang, `${A.pair(E)} – ${L.t.zonesTitle.toLowerCase()}`)}
+${zonesBlock(lang, `${A.pair(E)}${lang === 'fr' ? ' :' : ':'} ${L.t.zonesTitle.toLowerCase()}`)}
 ${faqBlock(L, faq)}
 ${ctaBand(L, lang)}`;
       return {
@@ -516,7 +516,7 @@ ${pageHero({ L, lang, crumbs: [[L.t.home, 'home'], [P.h1, null]], h1: P.h1, lead
 <section class="section">
   <div class="container narrow prose">${P.blocks(info).map(([h, t]) => `<h2>${h}</h2><p>${t}</p>`).join('')}</div>
 </section>`;
-    return { title: P.title, desc: strip(P.h1) + ' – FrigAirco', body, crumbs: [[L.t.home, 'home'], [P.h1, kind]], schema: [], noindex: true };
+    return { title: P.title, desc: strip(P.h1) + ' | FrigAirco', body, crumbs: [[L.t.home, 'home'], [P.h1, kind]], schema: [], noindex: true };
   }
 
   // ---------- Gabarit commun ----------
@@ -533,12 +533,12 @@ ${pageHero({ L, lang, crumbs: [[L.t.home, 'home'], [P.h1, null]], h1: P.h1, lead
     const zoneSub = groups.map((g) => `<div><p>${L.t.groups[g]}</p>${zones.filter((z) => z.group === g).map((z) => `<a href="${url(lang, 'zone:' + z.key)}">${z.name[lang]}</a>`).join('')}</div>`).join('');
     return `
 <div class="topbar"><div class="container topbar-in">
-  <span><span class="dot"></span>${L.t.available}<span class="topbar-regions"> — ${L.t.regions}</span></span>
+  <span><span class="dot"></span>${L.t.available}<span class="topbar-regions"> · ${L.t.regions}</span></span>
   <a href="${telUrl}">${icon('phone')}${cfg.phoneDisplay}</a>
 </div></div>
 <header class="header">
   <div class="container header-in">
-    <a class="brand" href="${url(lang, 'home')}" aria-label="FrigAirco – ${L.t.home}">${mark('h')}<span class="brand-name">Frig<b>Airco</b></span></a>
+    <a class="brand" href="${url(lang, 'home')}" aria-label="${L.t.home} FrigAirco">${mark('h')}<span class="brand-name">Frig<b>Airco</b></span></a>
     <button class="nav-toggle" type="button" aria-controls="nav" aria-expanded="false" aria-label="${L.t.menu}">${icon('menu')}</button>
     <nav class="nav" id="nav" aria-label="${L.t.menu}">
       <ul>
