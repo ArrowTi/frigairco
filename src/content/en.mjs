@@ -576,7 +576,7 @@ export default {
       ['Data collected', 'When you use the contact form, we receive the details you enter: name, phone number, email address, town and message.'],
       ['Use', 'These details are used only to answer your request, prepare a quote and arrange a visit. They are not sold or passed on to third parties.'],
       ['Retention', 'Your details are kept for as long as needed to handle your request and follow up the customer relationship, then deleted.'],
-      ['Cookies', 'This website does not use advertising or tracking cookies.'],
+      ['Cookies', 'This website sets no cookies and uses no analytics or advertising tools. Only the display language is remembered in your browser for the length of your visit; it is cleared when you close the tab.'],
       ['Your rights', 'You can ask to access, correct or delete your details by writing to us. You can also lodge a complaint with the Belgian Data Protection Authority (www.dataprotectionauthority.be).'],
     ],
   },

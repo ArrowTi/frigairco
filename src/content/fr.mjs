@@ -576,7 +576,7 @@ export default {
       ['Données collectées', 'Lorsque vous utilisez le formulaire de contact, nous recevons les informations que vous y indiquez : nom, téléphone, adresse e-mail, localité et message.'],
       ['Utilisation', 'Ces données servent uniquement à répondre à votre demande, à établir un devis et à organiser une intervention. Elles ne sont ni vendues ni cédées à des tiers.'],
       ['Durée de conservation', 'Vos données sont conservées le temps nécessaire au traitement de votre demande et au suivi de la relation commerciale, puis supprimées.'],
-      ['Cookies', "Ce site n'utilise pas de cookies publicitaires ni de cookies de suivi."],
+      ['Cookies', "Ce site ne dépose aucun cookie et n'utilise aucun outil de mesure d'audience ni de publicité. Seule la langue d'affichage est retenue dans votre navigateur le temps de la visite ; elle est effacée à la fermeture de l'onglet."],
       ['Vos droits', "Vous pouvez demander l'accès à vos données, leur rectification ou leur suppression en nous écrivant. Vous pouvez aussi introduire une réclamation auprès de l'Autorité de protection des données (www.autoriteprotectiondonnees.be)."],
     ],
   },
