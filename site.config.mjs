@@ -18,9 +18,11 @@ export default {
   // Adresse qui reçoit les demandes de devis du formulaire.
   quoteEmail: 'contact@frigairco.be',
 
-  // Envoi direct du formulaire par FormSubmit (gratuit, sans compte). À la première
-  // demande reçue, FormSubmit envoie un e-mail d'activation à quoteEmail : il faut
-  // cliquer une fois sur le lien. Laissez vide pour ouvrir la messagerie du visiteur.
+  // À COMPLÉTER : envoi direct du formulaire par Web3Forms (gratuit, 250 demandes par
+  // mois). Créez la clé sur web3forms.com avec l'adresse quoteEmail : elle arrive par
+  // e-mail, collez-la ici. Sans clé, le formulaire passe par FormSubmit (formEndpoint).
+  // En cas d'échec, le visiteur peut toujours envoyer sa demande par e-mail.
+  formAccessKey: '',
   formEndpoint: 'https://formsubmit.co/ajax/contact@frigairco.be',
 
   // À COMPLÉTER : obligatoire sur un site professionnel en Belgique.
@@ -52,7 +54,8 @@ export default {
     { key: 'panasonic', name: 'Panasonic' },
     { key: 'samsung', name: 'Samsung' },
     { key: 'lg', name: 'LG' },
-    { key: 'marque-o', name: 'Marque partenaire' },
+    { key: 'hitachi', name: 'Hitachi' },
+    { key: 'otacos', name: "O'Tacos" },
   ],
 
   // Avis clients réels uniquement (le texte reste dans la langue d'origine). Tant que

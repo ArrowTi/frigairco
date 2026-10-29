@@ -514,6 +514,7 @@ export default {
     sending: 'Bezig met verzenden…',
     ok: 'Bedankt, uw aanvraag is verzonden. Wij nemen snel contact met u op.',
     error: 'Het verzenden is niet gelukt. Bel ons of stuur een WhatsApp-bericht.',
+    fallback: 'Aanvraag per e-mail versturen',
     mailto: 'Uw e-mailprogramma wordt geopend met de aanvraag klaar om te verzenden.',
     subject: 'Aanvraag via de website FrigAirco',
   },

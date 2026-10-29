@@ -514,6 +514,7 @@ export default {
     sending: 'Sending…',
     ok: 'Thank you, your request has been sent. We will get back to you quickly.',
     error: 'The request could not be sent. Please call us or message us on WhatsApp.',
+    fallback: 'Send the request by email',
     mailto: 'Your email program will open with the request ready to send.',
     subject: 'Request via the FrigAirco website',
   },

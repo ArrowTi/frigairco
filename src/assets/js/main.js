@@ -58,9 +58,15 @@ const form = document.querySelector('[data-contact-form]');
 if (form) {
   const status = form.querySelector('[data-form-status]');
   const button = form.querySelector('button[type="submit"]');
-  const say = (text, state) => {
+  const say = (text, state, link) => {
     status.textContent = text;
     status.dataset.state = state;
+    if (link) {
+      const a = document.createElement('a');
+      a.href = link.href;
+      a.textContent = link.label;
+      status.append(' ', a);
+    }
   };
 
   form.addEventListener('submit', async (e) => {
@@ -68,25 +74,27 @@ if (form) {
     if (form.website.value) return; // champ piège : rempli uniquement par les robots
 
     const fields = [...form.querySelectorAll('[data-label]')].filter((el) => el.value.trim());
-    const { endpoint, email, subject, ok, error, mailto, sending } = form.dataset;
+    const { endpoint, key, email, subject, ok, error, mailto, sending, fallback } = form.dataset;
+    const body = fields.map((el) => `${el.dataset.label} : ${el.value.trim()}`).join('\n');
+    const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-    if (!endpoint) {
-      const body = fields.map((el) => `${el.dataset.label} : ${el.value.trim()}`).join('\n');
-      window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    if (!key && !endpoint) {
+      window.location.href = mailtoUrl;
       say(mailto, 'ok');
       return;
     }
 
     // Les intitulés du formulaire servent de noms de champs : l'e-mail reçu se lit tel quel.
+    // Avec une clé Web3Forms on passe par Web3Forms, sinon par l'adresse FormSubmit.
     const data = Object.fromEntries(fields.map((el) => [el.dataset.label, el.value.trim()]));
-    data._subject = subject;
-    data._replyto = form.email.value.trim();
-    data._template = 'table';
+    const replyTo = form.email.value.trim();
+    if (key) Object.assign(data, { access_key: key, subject, from_name: 'Site FrigAirco', replyto: replyTo });
+    else Object.assign(data, { _subject: subject, _replyto: replyTo, _template: 'table' });
 
     button.disabled = true;
     say(sending, 'wait');
     try {
-      const res = await fetch(endpoint, {
+      const res = await fetch(key ? 'https://api.web3forms.com/submit' : endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(data),
@@ -96,7 +104,8 @@ if (form) {
       form.reset();
       say(ok, 'ok');
     } catch {
-      say(error, 'error');
+      // Le service d'envoi ne répond pas : la demande peut encore partir par e-mail.
+      say(error, 'error', { href: mailtoUrl, label: fallback });
     } finally {
       button.disabled = false;
     }

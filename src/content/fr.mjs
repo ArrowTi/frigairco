@@ -514,6 +514,7 @@ export default {
     sending: 'Envoi en cours…',
     ok: 'Merci, votre demande est bien partie. Nous revenons vers vous rapidement.',
     error: "L'envoi n'a pas abouti. Appelez-nous ou écrivez-nous sur WhatsApp.",
+    fallback: 'Envoyer la demande par e-mail',
     mailto: 'Votre logiciel de messagerie va s\'ouvrir avec la demande prête à envoyer.',
     subject: 'Demande via le site FrigAirco',
   },

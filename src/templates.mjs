@@ -173,7 +173,7 @@ export function createRenderer(c) {
   const contactForm = (L) => {
     const f = L.form;
     return `<form class="form" method="post" action="${esc(cfg.formEndpoint || '#')}" data-contact-form
-      data-endpoint="${esc(cfg.formEndpoint)}" data-email="${esc(cfg.quoteEmail)}"
+      data-endpoint="${esc(cfg.formEndpoint)}" data-key="${esc(cfg.formAccessKey)}" data-email="${esc(cfg.quoteEmail)}" data-fallback="${esc(f.fallback)}"
       data-subject="${esc(f.subject)}" data-ok="${esc(f.ok)}" data-error="${esc(f.error)}" data-mailto="${esc(f.mailto)}" data-sending="${esc(f.sending)}">
       <h2>${L.contact.formTitle}</h2>
       <div class="row">
