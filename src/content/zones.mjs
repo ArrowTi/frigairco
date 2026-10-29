@@ -94,7 +94,7 @@ export const zones = [
     slug: { fr: 'wavre', en: 'wavre' },
     near: ['Ottignies-Louvain-la-Neuve', 'Rixensart', 'Grez-Doiceau', 'Chaumont-Gistoux', 'La Hulpe', 'Limal', 'Bierges'],
     ctx: {
-      fr: "Chef-lieu du Brabant wallon, Wavre réunit un centre commerçant animé, des zonings d'entreprises et la proximité de Louvain-la-Neuve.",
+      fr: "Siège de la province du Brabant wallon, Wavre réunit un centre commerçant animé, des zonings d'entreprises et la proximité de Louvain-la-Neuve.",
       en: "Wavre, the capital of Walloon Brabant, combines a lively shopping centre, business estates and the nearby town of Louvain-la-Neuve.",
     },
   },

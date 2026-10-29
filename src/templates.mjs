@@ -1,4 +1,4 @@
-import { icon, star, mark, waIcon } from './icons.mjs';
+import { icon, mark, resetIcons, sprite } from './icons.mjs';
 import { groups } from './content/zones.mjs';
 
 export const ACTIONS = ['depannage', 'entretien', 'installation'];
@@ -47,7 +47,7 @@ export function createRenderer(c) {
   // ---------- Briques réutilisables ----------
 
   const btnCall = (L) => `<a class="btn btn-call" href="${telUrl}">${icon('phone')}<span>${L.t.callNumber(cfg.phoneDisplay)}</span></a>`;
-  const btnWa = (L) => `<a class="btn btn-wa" href="${waUrl}" rel="noopener">${waIcon}<span>${L.t.whatsapp}</span></a>`;
+  const btnWa = (L) => `<a class="btn btn-wa" href="${waUrl}" rel="noopener">${icon('wa')}<span>${L.t.whatsapp}</span></a>`;
   const btnQuote = (L, lang, cls = 'btn-ghost') => `<a class="btn ${cls}" href="${url(lang, 'contact')}#contact">${L.t.quote}</a>`;
 
   const secHead = (title, lead) => `<div class="sec-head"><h2>${title}</h2>${lead ? `<p>${lead}</p>` : ''}</div>`;
@@ -122,7 +122,7 @@ export function createRenderer(c) {
     <div class="reviews">${cfg.reviews
       .map((r) => `<figure class="review">
         <div class="review-top"><span class="avatar" aria-hidden="true">${esc(r.name.charAt(0))}</span><figcaption><b>${esc(r.name)}</b>${r.date ? `<small>${esc(r.date)}</small>` : ''}</figcaption>${r.example ? `<span class="review-tag">${L.t.reviewExample}</span>` : r.source ? `<span class="review-src">${esc(r.source)}</span>` : ''}</div>
-        <div class="stars" role="img" aria-label="${L.code === 'en' ? r.rating : String(r.rating).replace('.', ',')}/5"><span class="stars-bg">${star.repeat(5)}</span><span class="stars-fill" style="width: ${r.rating * 20}%">${star.repeat(5)}</span></div>
+        <div class="stars" role="img" aria-label="${L.code === 'en' ? r.rating : String(r.rating).replace('.', ',')}/5"><span class="stars-bg">${icon('star', 'star').repeat(5)}</span><span class="stars-fill" style="width: ${r.rating * 20}%">${icon('star', 'star').repeat(5)}</span></div>
         <blockquote>${esc(r.text)}</blockquote>
       </figure>`)
       .join('')}</div>
@@ -172,7 +172,7 @@ export function createRenderer(c) {
 
   const contactForm = (L) => {
     const f = L.form;
-    return `<form class="form" method="post" action="${esc(cfg.formEndpoint || '#')}" data-contact-form
+    return `<form class="form" method="post" action="${esc(cfg.formEndpoint || `mailto:${cfg.quoteEmail}`)}"${cfg.formEndpoint ? '' : ' enctype="text/plain"'} data-contact-form
       data-endpoint="${esc(cfg.formEndpoint)}" data-key="${esc(cfg.formAccessKey)}" data-email="${esc(cfg.quoteEmail)}" data-fallback="${esc(f.fallback)}"
       data-subject="${esc(f.subject)}" data-ok="${esc(f.ok)}" data-error="${esc(f.error)}" data-mailto="${esc(f.mailto)}" data-sending="${esc(f.sending)}">
       <h2>${L.contact.formTitle}</h2>
@@ -203,7 +203,7 @@ export function createRenderer(c) {
       ${withHead ? `<h2>${L.contact.h1}</h2><p class="muted">${L.contact.lead}</p>` : ''}
       <ul class="contact-list">
         <li><a href="${telUrl}">${icon('phone')}<span><b>${L.contact.phoneLabel}</b>${cfg.phoneDisplay}<small>${L.contact.phoneNote}</small></span></a></li>
-        <li><a href="${waUrl}" rel="noopener">${waIcon}<span><b>${L.contact.waLabel}</b>${cfg.phoneDisplay}<small>${L.contact.waNote}</small></span></a></li>
+        <li><a href="${waUrl}" rel="noopener">${icon('wa')}<span><b>${L.contact.waLabel}</b>${cfg.phoneDisplay}<small>${L.contact.waNote}</small></span></a></li>
         <li><a href="mailto:${cfg.email}">${icon('mail')}<span><b>${L.contact.mailLabel}</b>${cfg.email}<small>${L.contact.mailNote}</small></span></a></li>
         <li><a href="${url(lang, 'zones')}">${icon('pin')}<span><b>${L.contact.areaLabel}</b>${L.contact.areaNote}<small>${L.t.allZones}</small></span></a></li>
       </ul>
@@ -592,10 +592,10 @@ ${pageHero({ L, lang, crumbs: [[L.t.home, 'home'], [P.h1, null]], h1: P.h1, lead
     <p><a href="${url(lang, 'legal')}">${L.t.legal}</a><a href="${url(lang, 'privacy')}">${L.t.privacy}</a></p>
   </div>
 </footer>
-<a class="wa-float" href="${waUrl}" rel="noopener" aria-label="${L.t.whatsapp}">${waIcon}</a>
+<a class="wa-float" href="${waUrl}" rel="noopener" aria-label="${L.t.whatsapp}">${icon('wa')}</a>
 <div class="mobile-bar">
   <a class="mb-call" href="${telUrl}">${icon('phone')}${L.t.call}</a>
-  <a class="mb-wa" href="${waUrl}" rel="noopener">${waIcon}${L.t.whatsapp}</a>
+  <a class="mb-wa" href="${waUrl}" rel="noopener">${icon('wa')}${L.t.whatsapp}</a>
   <a class="mb-quote" href="${url(lang, 'contact')}">${icon('mail')}${L.t.quoteShort}</a>
 </div>`;
   }
@@ -661,17 +661,20 @@ ${header(lang, id)}
 <main id="main">${page.body}
 </main>
 ${footer(lang)}
+${sprite()}
 </body>
 </html>
 `;
   }
 
   function render(lang, id) {
+    resetIcons();
     const [type, a, b] = id.split(':');
     return layout(lang, id, pages[type](lang, a, b));
   }
 
   function notFound() {
+    resetIcons();
     const L = langs.fr;
     const body = `
 <section class="hero hero--page">

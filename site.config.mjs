@@ -63,7 +63,7 @@ export default {
   // (sans `example`) avant la mise en ligne définitive.
   reviews: [
     { name: 'Rayan A.', rating: 5, text: 'Chambre froide en panne un samedi soir: le technicien est arrivé rapidement et tout fonctionnait à nouveau dans la nuit. Merci !' },
-    { name: 'Salma E.', rating: 4.5, text: 'Installation de notre climatisation dans les délais, travail propre et explications claires.' },
-    { name: 'Philipe B.', rating: 4, text: 'Entretien de la pompe à chaleur fait sérieusement. Un petit délai pour le rendez-vous, mais un très bon travail.' },
+    { name: 'Salma E.', rating: 4, text: 'Installation de notre climatisation dans les délais, travail propre et explications claires.' },
+    { name: 'Philipe B.', rating: 5, text: 'Entretien de la pompe à chaleur fait sérieusement. Un petit délai pour le rendez-vous, mais un très bon travail.' },
   ],
 };

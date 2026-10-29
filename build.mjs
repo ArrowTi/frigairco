@@ -45,6 +45,10 @@ function url(lang, id) {
 fs.rmSync(out, { recursive: true, force: true });
 fs.cpSync(path.join(src, 'assets'), path.join(out, 'assets'), { recursive: true, filter: (f) => !f.endsWith('.txt') });
 
+// Feuille de style allégée : sans commentaires ni espaces superflus.
+const cssFile = path.join(out, 'assets', 'css', 'style.css');
+fs.writeFileSync(cssFile, fs.readFileSync(cssFile, 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, ' ').replace(/\s*([{};,>])\s*/g, '$1').replace(/;}/g, '}').trim());
+
 const imgOut = path.join(out, 'assets', 'img');
 fs.mkdirSync(imgOut, { recursive: true });
 fs.writeFileSync(path.join(imgOut, 'favicon.svg'), markFile);

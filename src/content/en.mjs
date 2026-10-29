@@ -9,8 +9,6 @@ export default {
   hreflang: 'en',
   ogLocale: 'en_GB',
   prefix: '/en',
-  label: 'EN',
-  langName: 'English',
 
   slugs: {
     zones: 'areas',
@@ -37,7 +35,6 @@ export default {
     zones: 'Areas',
     blog: 'Advice',
     contact: 'Contact',
-    langSwitch: 'Language',
     learnMore: 'Learn more',
     readMore: 'Read the article',
     allZones: 'All areas covered',

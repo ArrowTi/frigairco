@@ -55,7 +55,7 @@ mark { background: #fff1c2; padding: 0 0.3em; border-radius: 4px; }
 .skip { position: absolute; left: -9999px; top: 0; background: #fff; color: var(--ink); padding: 0.6rem 1rem; z-index: 100; }
 .skip:focus { left: 0.5rem; top: 0.5rem; }
 
-.ico { width: 1.25em; height: 1.25em; flex: none; }
+.ico { width: 1.25em; height: 1.25em; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .dot { display: inline-block; width: 0.55rem; height: 0.55rem; border-radius: 50%; background: #35d07f; box-shadow: 0 0 0 4px rgba(53, 208, 127, 0.2); margin-right: 0.6rem; vertical-align: middle; }
 
 /* ---------- Boutons ---------- */
