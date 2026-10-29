@@ -18,12 +18,11 @@ export default {
   // Adresse qui reçoit les demandes de devis du formulaire.
   quoteEmail: 'contact@frigairco.be',
 
-  // À COMPLÉTER : envoi direct du formulaire par Web3Forms (gratuit, 250 demandes par
-  // mois). Créez la clé sur web3forms.com avec l'adresse quoteEmail : elle arrive par
-  // e-mail, collez-la ici. Sans clé, le formulaire passe par FormSubmit (formEndpoint).
-  // En cas d'échec, le visiteur peut toujours envoyer sa demande par e-mail.
+  // Le formulaire ouvre la messagerie du visiteur avec la demande prête à partir vers
+  // quoteEmail. Pour un envoi direct sans messagerie, collez ici une clé Web3Forms
+  // (créée gratuitement sur web3forms.com avec l'adresse quoteEmail).
   formAccessKey: '',
-  formEndpoint: 'https://formsubmit.co/ajax/contact@frigairco.be',
+  formEndpoint: '',
 
   // À COMPLÉTER : obligatoire sur un site professionnel en Belgique.
   company: {

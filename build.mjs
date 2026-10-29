@@ -127,7 +127,6 @@ write('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${site.domain}${base}/s
 
 const todo = [];
 if (cfg.phoneIntl === '+32400000000') todo.push('numéro de téléphone (phoneDisplay, phoneIntl)');
-if (!cfg.formAccessKey) todo.push(`formulaire : clé Web3Forms à créer pour ${cfg.quoteEmail} (formAccessKey)`);
 if (!cfg.company.vat) todo.push("numéro d'entreprise et coordonnées légales (company)");
 if (!cfg.reviews.length) todo.push('avis clients (reviews) : section masquée tant que la liste est vide');
 const noLogo = cfg.brands.filter((b) => !assets.brands[b.key]).map((b) => b.name);
