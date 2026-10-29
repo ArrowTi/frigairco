@@ -8,9 +8,9 @@ export default {
   // À COMPLÉTER : adresse définitive du site, sans barre oblique finale.
   domain: 'https://www.frigairco.be',
 
-  // À COMPLÉTER : numéro affiché et numéro au format international (appel + WhatsApp).
-  phoneDisplay: '0400 00 00 00',
-  phoneIntl: '+32400000000',
+  // Numéro affiché et numéro au format international (appel + WhatsApp).
+  phoneDisplay: '0487 87 09 93',
+  phoneIntl: '+32487870993',
 
   // Adresse affichée sur le site pour les contacts.
   email: 'info@frigairco.be',

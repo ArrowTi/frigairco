@@ -7,7 +7,6 @@ import { fileURLToPath } from 'node:url';
 
 import cfg from './site.config.mjs';
 import fr from './src/content/fr.mjs';
-import nl from './src/content/nl.mjs';
 import en from './src/content/en.mjs';
 import { zones } from './src/content/zones.mjs';
 import { createRenderer, ACTIONS, EQUIP } from './src/templates.mjs';
@@ -16,7 +15,7 @@ import { markFile, logoFile } from './src/icons.mjs';
 const root = path.dirname(fileURLToPath(import.meta.url));
 const src = path.join(root, 'src');
 const out = path.join(root, 'dist');
-const langs = { fr, nl, en };
+const langs = { fr, en };
 const zoneBy = Object.fromEntries(zones.map((z) => [z.key, z]));
 
 // Mise en ligne sur une adresse provisoire (GitHub Pages) : l'adresse du site, le

@@ -18,9 +18,9 @@ const FOOTER_LINKS = [
 const FOOTER_ZONES = ['liege', 'namur', 'charleroi', 'mons', 'anvers', 'gand'];
 
 // Choix automatique de la langue, une fois par visite, d'après la langue du navigateur :
-// néerlandais s'il figure dans la liste, sinon français, sinon anglais. Les robots des
+// français s'il figure dans la liste, sinon anglais. Les robots des
 // moteurs de recherche ne sont pas redirigés, pour que chaque version reste indexée.
-const AUTO_LANG = `<script>(function(){try{if(navigator.webdriver||/bot|crawl|spider|slurp|lighthouse|preview/i.test(navigator.userAgent))return;if(sessionStorage.getItem("fa-lang"))return;sessionStorage.setItem("fa-lang","1");var l=","+(navigator.languages||[navigator.language]).join(",").toLowerCase(),w=l.indexOf(",nl")>-1?"nl":l.indexOf(",fr")>-1?"fr":l.indexOf(",en")>-1?"en":"",c=document.documentElement.lang.slice(0,2);if(!w||w===c)return;var a=document.querySelector('link[rel="alternate"][hreflang^="'+w+'"]');if(a)location.replace(new URL(a.href).pathname+location.hash)}catch(e){}})()</script>`;
+const AUTO_LANG = `<script>(function(){try{if(navigator.webdriver||/bot|crawl|spider|slurp|lighthouse|preview/i.test(navigator.userAgent))return;if(sessionStorage.getItem("fa-lang"))return;sessionStorage.setItem("fa-lang","1");var l=","+(navigator.languages||[navigator.language]).join(",").toLowerCase(),w=l.indexOf(",fr")>-1?"fr":l.indexOf(",en")>-1?"en":"",c=document.documentElement.lang.slice(0,2);if(!w||w===c)return;var a=document.querySelector('link[rel="alternate"][hreflang^="'+w+'"]');if(a)location.replace(new URL(a.href).pathname+location.hash)}catch(e){}})()</script>`;
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const strip = (s) => String(s).replace(/<[^>]+>/g, '');
@@ -613,7 +613,7 @@ ${pageHero({ L, lang, crumbs: [[L.t.home, 'home'], [P.h1, null]], h1: P.h1, lead
     address: { '@type': 'PostalAddress', addressCountry: 'BE' },
     areaServed: zones.map((z) => ({ '@type': z.group === 'wal' || z.group === 'fla' ? 'City' : 'AdministrativeArea', name: z.name.fr })),
     openingHoursSpecification: { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], opens: '00:00', closes: '23:59' },
-    knowsLanguage: ['fr', 'nl', 'en'],
+    knowsLanguage: Object.keys(langs),
     sameAs: Object.values(cfg.social).filter(Boolean),
   };
 
